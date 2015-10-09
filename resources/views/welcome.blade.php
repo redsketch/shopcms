@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shop CMS</title>
+        <title>{{ $site->name }}</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Shop CMS2</div>
+                <div class="title">{{ $site->name }}</div>
             </div>
         </div>
     </body>

@@ -7,7 +7,7 @@
         <meta content="" name="description">
         <meta content="" name="author">
         <link href="favicon.ico" rel="icon">
-        <title>{{ $pageTitle or 'Shop CMS' }}</title>
+        <title>{{ $site->name or 'Shop CMS' }}</title>
         <base href="/">
         <!-- Styles -->
         <!-- Bootstrap core style -->

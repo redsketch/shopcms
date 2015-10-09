@@ -11,13 +11,33 @@ use App\Http\Controllers\Controller;
 
 class StoreController extends Controller
 {
+	/*
+	 * Primary/Main model
+	 */
 	protected $model;
+	
+	/*
+	 * Base view path
+	 */
 	protected $view;
+	
+	/*
+	 * 
+	 * Base language path
+	 */
+	protected $lang;
+	
+	/* 
+	 * This controller route
+	 */
+	 protected $route;
 	
 	public function __construct(Model $model)
 	{
 		$this->model = $model;
 		$this->view = 'admin.store.edit';
+		$this->lang = 'responses.store';
+		$this->route = 'store';
 	}
     
     /**
@@ -43,6 +63,14 @@ class StoreController extends Controller
      */
     public function update(StoreEditRequest $request, $id)
     {
-        $this->model->update($id, $request->all());
+        if ($this->model->update($id, $request->all())) {
+            $response['status'] = 'success'; // http 200
+            $response['msg'] = \Lang::get("{$this->lang}.update.success");
+        } else {
+            $response['status'] = 'danger';
+            $response['msg'] = \Lang::get("{$this->lang}.update.fail");
+        }
+
+        return redirect("{$this->route}/settings")->with('response', $response);
     }
 }
