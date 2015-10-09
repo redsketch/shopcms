@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
 			[
 				'name' => 'Administrator',
 				'email' => 'admin@admin.com',
-				'password' => Hash::make('admin')
+				'password' => bcrypt('admin')
 			]
 		);
 	}

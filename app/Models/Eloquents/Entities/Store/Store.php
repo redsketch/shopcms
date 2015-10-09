@@ -19,4 +19,5 @@ class Store extends Model
      * @var array
      */
     protected $fillable = ['name', 'email'];
+    
 }

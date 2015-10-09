@@ -21,3 +21,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController'
 ]);
+
+Route::group(['prefix' => 'store', 'middleware' => 'auth'], function () {
+	Route::get('/settings', 'Admin\Store\StoreController@edit');
+	Route::post('/update/{id}', 'Admin\Store\StoreController@update');
+});

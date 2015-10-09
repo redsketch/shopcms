@@ -19,7 +19,10 @@ class StoreTableSeeder extends Seeder
 		$this->model->create(
 			[
 				'name' => 'Shop CMS',
+				'address' => 'Soon',
 				'email' => 'contact@shopcms.com',
+				'phone1' => '1234567',
+				'phone2' => '1234568'
 			]
 		);
 	}
