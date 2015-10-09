@@ -15,14 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', 'Admin\HomeController@index');
-
+// ---- Auth ----
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController'
 ]);
 
+// ------------------------------
+// ---- Admin Routes Section ----
+// ------------------------------
+ 
+// ---- Home ----
+Route::get('home', 'Admin\HomeController@index');
+
+// ---- Store ----
 Route::group(['prefix' => 'store', 'middleware' => 'auth'], function () {
 	Route::get('/settings', 'Admin\Store\StoreController@edit');
 	Route::post('/update/{id}', 'Admin\Store\StoreController@update');
+});
+
+// ---- Product ----
+Route::group(['prefix' => 'products', 'middleware' => 'auth'], function () {
+	Route::get('/', 'Admin\Product\ProductController@index');
 });

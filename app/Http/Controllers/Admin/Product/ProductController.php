@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Store;
+namespace App\Http\Controllers\Admin\Product;
 
+// Need to change this later
 use App\Models\Repositories\Store\StoreInterface as Model;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\StoreEditRequest;
 use App\Http\Controllers\Controller;
 
-class StoreController extends Controller
+class ProductController extends Controller
 {
 	/*
 	 * Primary/Main model
@@ -30,15 +30,57 @@ class StoreController extends Controller
 	/* 
 	 * This controller route
 	 */
-	 protected $route;
+	protected $route;
 	
 	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->view = 'admin.store';
-		$this->lang = 'responses.store';
-		$this->route = 'store';
+		$this->view = 'admin.product';
+		$this->lang = 'responses.product';
+		$this->route = 'products';
 	}
+	
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view("{$this->view}.index");
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
     
     /**
      * Show the form for editing the specified resource.
@@ -50,7 +92,7 @@ class StoreController extends Controller
     {
         $store = $this->model->all()->take(1);
         
-        return view("{$this->view}.edit")
+        return view($this->view)
 	        ->with('store', $store[0]);
     }
 
@@ -72,5 +114,16 @@ class StoreController extends Controller
         }
 
         return redirect("{$this->route}/settings")->with('response', $response);
+    }
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

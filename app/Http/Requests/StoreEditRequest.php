@@ -26,7 +26,9 @@ class StoreEditRequest extends Request
     {
         return [
             'name' => 'required|min:4',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'phone1' => 'numeric',
+            'phone2' => 'numeric'
         ];
     }
 }
