@@ -28,5 +28,11 @@ class RepositoryServiceProvider extends ServiceProvider
           'App\Models\Repositories\Store\StoreInterface',
           'App\Models\Eloquents\Store\StoreEloquent'
         );
+        
+		// Product
+        $this->app->bind(
+          'App\Models\Repositories\Product\ProductInterface',
+          'App\Models\Eloquents\Product\ProductEloquent'
+        );
     }
 }

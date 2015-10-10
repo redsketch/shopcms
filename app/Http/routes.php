@@ -37,4 +37,5 @@ Route::group(['prefix' => 'store', 'middleware' => 'auth'], function () {
 // ---- Product ----
 Route::group(['prefix' => 'products', 'middleware' => 'auth'], function () {
 	Route::get('/', 'Admin\Product\ProductController@index');
+	Route::get('/list', ['as' => 'products.list', 'uses' => 'Admin\Product\ProductController@productList']);
 });

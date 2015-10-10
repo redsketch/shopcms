@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Models\Eloquents\Entities\Store;
+namespace App\Models\Eloquents\Entities\Product;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Product extends Model
 {
      /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'store';
+    protected $table = 'products';
     
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'address', 'phone1', 'phone2'];
+    protected $fillable = ['name', 'code', 'price'];
     
 }
