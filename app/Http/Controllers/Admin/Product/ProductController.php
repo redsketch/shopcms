@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Models\Repositories\Product\ProductInterface as Model;
-use yajra\Datatables\Datatables;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -103,7 +102,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreEditRequest $request, $id)
+    public function update(Request $request, $id)
     {
         if ($this->model->update($id, $request->all())) {
             $response['status'] = 'success'; // http 200
@@ -126,9 +125,4 @@ class ProductController extends Controller
     {
         //
     }
-    
-    public function productList()
-    {
-		return Datatables::of($this->model->all())->make(true);
-	}
 }

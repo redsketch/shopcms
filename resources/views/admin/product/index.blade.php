@@ -18,44 +18,46 @@
 		</ul>
 	</div>
 	@endif
-	 
-	<table class="table table-bordered table-hover" id="products-table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>code</th>
-                <th>price</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-            </tr>
-        </thead>
-    </table>
+	
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="text-right">
+				<button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#product-dialog" data-action="new" id="add-product">
+					<span class="fa fa-plus"><span class="sr-only sr-only-focusable">(add new)</span></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row top-spacing">
+		<div class="col-lg-12">
+			<table class="table table-bordered table-hover" id="products-table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>code</th>
+						<th>price</th>
+						<th>Created At</th>
+						<th>Updated At</th>
+						<th>*</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>	
 </div>
+@include('admin.product.components.dialog_form')
 @endsection
 
 @push('style')
+<!--
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css">
+-->
+<link rel="stylesheet" type="text/css" href="assets/components/dataTables/media/css/jquery.dataTables.css">
 @endpush
 
 @push('body-script')
-<script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.js"></script>
-
-<script>
-$(function() {
-    $('#products-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: 'products/list',
-        columns: [
-            { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'code', name: 'code' },
-            { data: 'price', name: 'price' },
-            { data: 'created_at', name: 'created_at' },
-            { data: 'updated_at', name: 'updated_at' }
-        ]
-    });
-});
-</script>
+<script type="text/javascript" src="assets/components/dataTables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="assets/js/product.js"></script>
 @endpush

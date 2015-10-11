@@ -38,4 +38,13 @@ Route::group(['prefix' => 'store', 'middleware' => 'auth'], function () {
 Route::group(['prefix' => 'products', 'middleware' => 'auth'], function () {
 	Route::get('/', 'Admin\Product\ProductController@index');
 	Route::get('/list', ['as' => 'products.list', 'uses' => 'Admin\Product\ProductController@productList']);
+	Route::post('/{id}/update', 'Api\V1\Admin\Product\ProductController@update');
+});
+
+// ---- Api Product ----
+Route::group(['prefix' => 'api/products', 'middleware' => 'auth'], function () {
+	Route::get('/', 'Api\V1\Admin\Product\ProductController@index');
+	Route::post('/create', 'Api\V1\Admin\Product\ProductController@create');
+	Route::post('/{productId}/update', 'Api\V1\Admin\Product\ProductController@update');
+	Route::delete('/{productId}/destroy', 'Api\V1\Admin\Product\ProductController@destroy');
 });

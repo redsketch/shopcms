@@ -13,7 +13,6 @@ class AuthTest extends TestCase
      */
     public function testTheAuthRouteIsExists()
     {
-        $this->call('GET', '/auth/login');
-	    $this->assertResponseOk();
+        $this->visit('auth/login')->see('Shopte');
     }
 }

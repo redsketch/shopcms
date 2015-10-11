@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/components/bootstrap/dist/css/bootstrap.min.css') }}">
 
         <!-- Default style -->
-        <link rel="stylesheet" href="{{ asset('/assets/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
 
         <!-- Additional style -->
         @stack('style')
