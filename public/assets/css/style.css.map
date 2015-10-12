@@ -1,1 +1,1 @@
-{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA;EAAe,eAAc,EAAf","file":"style.css","sourcesContent":[".top-spacing { margin-top:1%; }\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA;EAAe,eAAc,EAAf;;AAEd;EACI,iBAAiB;EACjB,oBAAoB;EACpB,gBAAgB,EAHL","file":"style.css","sourcesContent":[".top-spacing { margin-top:1%; }\n\n.site-heading {\n    font-weight: 100;\n    font-family: 'Lato';\n    font-size: 64px;\n}\n"],"sourceRoot":"/source/"}
